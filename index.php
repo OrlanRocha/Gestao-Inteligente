@@ -1,4 +1,9 @@
 <?php  
+// error_reporting(0);
+// ini_set('display_errors', 0);
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 try{
 	if(!is_file(__DIR__.'/Sistema/Controle/index.php')) {
     	throw new Exception('Erro ao inicializar o sistema contate o administrador. COD 001');
@@ -10,4 +15,5 @@ try{
 		'Mensagem' => $e->getMessage()
 	)));
 }
+// var_dump($_SESSION);
 ?>

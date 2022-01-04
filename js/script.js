@@ -1,13 +1,14 @@
 var bar_0 = document.querySelector(".bar_"),
     grid = document.querySelector(".g-p"),
     sba_1 = document.querySelector(".sbar-1"),
-    sba_2 = document.querySelector(".sbar-2");
+    sba_2 = document.querySelector(".sbar-2"),
+    sideDados = document.querySelector(".sideDados");
 
     bar_0.addEventListener("click", function() {
     if (grid.style.borderColor != 'transparent') {
-        grid.classList.remove("grid-panel"), grid.classList.add("grid-panel-oculto"), grid.style.borderColor = "transparent";
+        grid.classList.remove("grid-panel"), grid.classList.add("grid-panel-oculto"), grid.style.borderColor = "transparent", sideDados.style.display = 'none';
     } else if (grid.style.borderColor == 'transparent') {
-        grid.classList.remove("grid-panel-oculto"), grid.classList.add("grid-panel"), grid.style.borderColor = "white";
+        grid.classList.remove("grid-panel-oculto"), grid.classList.add("grid-panel"), grid.style.borderColor = "white", sideDados.style.display = 'block';
     }
 });
 

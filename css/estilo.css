@@ -47,7 +47,15 @@ html {
     color: rgba(0, 0, 0, 0.6);
     font-size: 1.05rem;
 }
-
+.imgSiteLogo{
+    max-width: 250px;display: inline-block;
+}
+.nomeLogoP{
+    position: relative;top: -1rem;left:1rem;font-size: 1.4rem;
+}
+.cx-LogoNome{
+    max-width: 200px;display: inline-block;
+}
 .cor-azul {
     background-color: rgba(9, 157, 216, 0.1) !important;
     color: rgba(1, 56, 160, 0.7) !important;
@@ -764,7 +772,29 @@ nav span {
 .r-circle {
     border-radius: 47%;
 }
-
+.logoIMG-Loja{
+    width: 115px !important;
+    height: 115px !important;
+    position: relative;
+    margin-bottom: .6rem;
+    margin-top: .6rem;
+}
+.logoRedondo{
+    border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    -ms-border-radius: 50% !important;
+    -o-border-radius: 50% !important;
+    overflow: hidden !important;
+    
+}
+.logoIMG-Loja img{
+    width: auto !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .ativo {
     background-color: rgba(11, 148, 114, 1) !important;
     color: white !important;
@@ -918,6 +948,7 @@ nav span {
     display: grid;
     grid-template-columns: 20% 40% 40%;
 }
+
 
 .grid-auto-100 {
     display: grid;
@@ -1336,7 +1367,9 @@ ol li {
     transition: height 0.25s ease-out;
     border-radius: .6rem;
 }
-
+.oqueBuscamos{
+    min-height: 260px;
+}
 .invisible {
     visibility: hidden;
 }
@@ -1681,4 +1714,8 @@ ol li {
     border-color: rgba(16, 100, 79, 0.8) !important; 
     border-radius: 1rem; 
     padding: 1rem;
+}
+.corNavBtn{
+    color: #3DBFA7 !important;
+    background-color: white !important;
 }

@@ -27,8 +27,8 @@ document.querySelector(".spand-1").addEventListener("click", function() {
 });
 
 document.querySelector(".spand-2").addEventListener("click", function() {
-    if (c_spd_2.style.height != "120px") {
-        c_spd_3.style.height = "0", c_spd_1.style.height = "0", c_spd_2.style.height = "120px",
+    if (c_spd_2.style.height != "145px") {
+        c_spd_3.style.height = "0", c_spd_1.style.height = "0", c_spd_2.style.height = "145px",
             c_spd_1.classList.add("invisible"), c_spd_3.classList.add("invisible"), c_spd_2.classList.remove("invisible");
     } else {
         c_spd_2.style.height = "0";

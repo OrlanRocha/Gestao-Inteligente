@@ -30,20 +30,33 @@
 
             if($this->valida_EMAIL()){
                 if($this->valida_SENHA()){
-                    if($this->status_LOGIN()){
-                        if($this->altera_STATUS($id = false)){
-                            $this->set_Mensage(["tipo" => "success", "msg" => "Login Efetuado com Sucesso.", "url" => "\\PainelControle"]);
-                        }else{
-                            $this->set_Mensage(["tipo" => "success", "msg" => "Login Efetuado com Sucesso.", "url" => "\\PainelControle"]);
-                        }  
-                    }   
+                    if($this->valida_Loja($_SESSION['sessionUser'][0]['USER_ID_Loja'])){
+                        if($this->status_LOGIN()){
+                            if($this->altera_STATUS()){
+                                $this->set_Mensage(["tipo" => "success", "msg" => "Login Efetuado com Sucesso.", "url" => "\\PainelControle"]);
+                            }else{
+                                $this->set_Mensage(["tipo" => "success", "msg" => "Login Efetuado com Sucesso.", "url" => "\\PainelControle"]);
+                            }  
+                       }  
+                    }else{
+                        $this->set_Mensage(["tipo" => "erro", "msg" => "Problema ao validar Loja."]);
+                        $this->session_Destroi();
+                    } 
                 }else{
                     $this->set_Mensage(["tipo" => "erro", "msg" => "Senha incorreta."]);
+                    $this->session_Destroi();
                 }
             }else{
                 $this->set_Mensage(["tipo" => "erro", "msg" => "E-mail incorreto ou não cadastrado."]);
+                $this->session_Destroi();
             }
             
+        }
+
+        private function session_Destroi(){
+            unset($_SESSION['sessionUser']['USER_ID_Loja']);
+            unset($_SESSION['sessionUser']);
+            session_destroy();
         }
 
         private function valida_EMAIL(){
@@ -54,6 +67,24 @@
             if ($submit->rowCount() > 0) {
 
                 $_SESSION['sessionUser'] =  $submit->fetchAll(\PDO::FETCH_ASSOC);
+
+                return true;
+
+            }else{
+
+                return false;
+
+            }
+        }
+        
+        private function valida_Loja($id_Loja = false){
+            $sql_EMAIL = "SELECT * FROM `loja` WHERE `LOJA_ID` = '$id_Loja'";
+            $submit = \Sistema\Controle\Conexao::conectar()->prepare($sql_EMAIL);
+            $submit->execute();
+
+            if ($submit->rowCount() > 0) {
+
+                $_SESSION['loja'] =  $submit->fetchAll(\PDO::FETCH_ASSOC);
 
                 return true;
 

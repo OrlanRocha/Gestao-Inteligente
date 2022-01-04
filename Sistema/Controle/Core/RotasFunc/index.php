@@ -20,20 +20,14 @@ class RotasFunc{
 			$submit = \Sistema\Controle\Conexao::conectar()->prepare($sql_UPDT);
             $submit->execute();
 
-			unset($_SESSION['sessionUser'][0]['USER_ID']);
-			unset($_SESSION['sessionUser'][0]['USER_Nome']);
-			unset($_SESSION['sessionUser'][0]['USER_Email']);
-			unset($_SESSION['sessionUser'][0]['USER_Login']);
-			unset($_SESSION['sessionUser'][0]['USER_Senha']);
-			unset($_SESSION['sessionUser'][0]['USER_ImagemPerfil']);
-			unset($_SESSION['sessionUser'][0]['USER_NivelAcesso']);
-			unset($_SESSION['sessionUser'][0]['USER_Status']);
-			unset($_SESSION['sessionUser'][0]['USER_IP']);
-			unset($_SESSION['sessionUser'][0]['USER_DataHora']);
-			unset($_SESSION['sessionUser'][0]['USER_NavegadorSistema']);
-			unset($_SESSION['sessionUser'][0]['USER_ID_Loja']);
 			unset($_SESSION['sessionUser'][0]);
 			unset($_SESSION['sessionUser']);
+
+			unset($_SESSION['loja'][0]);
+			unset($_SESSION['loja']);
+
+			session_destroy();
+			
 		}
 		header('Location: \\Login');
 		exit;
